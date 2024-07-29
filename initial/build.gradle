@@ -2,6 +2,7 @@ plugins {
 	id 'org.springframework.boot' version '3.3.0'
 	id 'io.spring.dependency-management' version '1.1.5'
 	id 'java'
+	id "org.flywaydb.flyway" version "10.16.0"
 }
 
 group = 'com.example'
@@ -10,11 +11,15 @@ sourceCompatibility = '17'
 
 repositories {
 	mavenCentral()
+	maven {
+		url "https://download.red-gate.com/maven/release"
+	}
 }
 
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.flywaydb:flyway-mysql'
 	developmentOnly 'org.springframework.boot:spring-boot-docker-compose'
 	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
